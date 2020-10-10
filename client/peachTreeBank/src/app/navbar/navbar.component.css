@@ -1,3 +1,15 @@
 #navbar{
     background-color: white;
+    border-bottom: 2px solid rgb(226, 134, 73);
+    box-shadow: 1px 1px rgba(82, 77, 77, 0.37);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+img{
+    margin-left: 8%;
+    padding: 10px;
+    width: 25%;
 }
