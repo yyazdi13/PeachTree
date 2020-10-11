@@ -5,11 +5,28 @@
     </div>
     <form>
         <label><strong>From Account</strong></label>
-        <input disabled placeholder="Free Checking(4692) - $5824.76">
+        <input disabled placeholder="Free Checking(4692) - ${{total}}">
         <label><strong>To Account</strong></label>
-        <input placeholder="Georgia Power Electric Company">
+        <input [(ngModel)]="to" type="text" name="to" placeholder="Southern Electric Company">
         <label><strong>Amount</strong></label>
-        <input placeholder="$0.00">
-        <button type="submit">Submit</button>
+        <input [(ngModel)]="amount" name="amount" placeholder="$0.00">
+    <button (click)="preview()" type="button" id="myBtn">Submit</button>
     </form>
+
+<div id="myModal" class="modal" *ngIf="visible" style="display: block;">
+
+  <div class="modal-content">
+    <span (click)="exitPreview()" class="close">&times;</span>
+    <form>
+        <label><strong>From Account</strong></label>
+        <input disabled placeholder="Free Checking(4692) - ${{total}}">
+        <label><strong>To Account</strong></label>
+        <input [value] = "to">
+        <label><strong>Amount</strong></label>
+        <input [value] ="amount" placeholder="$0.00">
+        <button id="transfer" type="submit">Transfer</button>
+    </form>
+  </div>
+
+</div>
 </div>
