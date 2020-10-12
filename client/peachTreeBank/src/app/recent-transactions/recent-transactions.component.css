@@ -22,7 +22,7 @@
 }
 
 h4{
-    margin-left: 210px;
+    margin-left: 250px;
     display: flex;
     flex-direction: column-reverse;
     align-self: center;
@@ -52,6 +52,7 @@ h4{
 .briefcase{
     max-width: 50%;
     padding: 8px;
+    color: white;
     opacity: .6;
 }
 
@@ -73,9 +74,43 @@ h4{
     margin-top: 0;
 }
 
+.search-container{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+}
+
+button{
+    padding: 3px;
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.568);
+    font-weight: bolder;
+    font-family: 'Kanit', sans-serif;
+}
+
+input{
+    border: unset;
+    border-bottom: 1px solid gray;
+    font-family: 'Kanit', sans-serif;
+    font-size: 14pt;
+    width: 40%;
+}
+
+.search-options{
+    margin-left: -50px;
+}
+
+
+button:hover{
+    background-color: rgba(184, 179, 179, 0.267);
+}
+
 @media only screen and (max-width: 600px) {
     
     .container{
         width: 90%;
     }
+    
 }

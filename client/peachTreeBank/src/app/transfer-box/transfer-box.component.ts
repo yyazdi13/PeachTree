@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TransferBoxComponent implements OnInit {
   total = <number> 5824.76;
   public to = '';
-  amount: number;
+  public amount = <any> '';
   constructor() { }
 
   visible = <boolean> false;
