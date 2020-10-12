@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RecentTransactionsService } from './recent-transactions-service.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class RecentTransactionsComponent implements OnInit {
   //     accountNumber: String
   //   }
   // }
-  transactions: Object;
+  transactions: Array<Object>;
   constructor(private _RecentTransactionsService: RecentTransactionsService) { }
 
   ngOnInit(): void {
@@ -38,6 +38,17 @@ export class RecentTransactionsComponent implements OnInit {
 
   public getDate(date: Date) {
     return new Date(date).toDateString();
+  }
+
+  onChange(event: Event): any {
+    let value = (event.target as HTMLInputElement).value;
+    if(value !== ""){
+      this.transactions = this.transactions.filter((item: any) => {
+        return item.merchant.name.toLowerCase().match(value.toLowerCase()) || 
+        item.transaction.amountCurrency.amount.toString().match(value.toString());
+      })
+    } else this.ngOnInit()
+    
   }
 
 }

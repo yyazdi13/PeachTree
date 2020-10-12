@@ -8,6 +8,10 @@
     overflow: auto;
 }
 
+.color{
+    width: 20px;
+}
+
 .header{
     background-color: rgba(6, 95, 122, 0.795);
     width: 100%;
@@ -27,19 +31,21 @@ h4{
 
 .content-box{
     overflow: auto;
+    padding: 20px;
 }
 .content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid gray;
+    border: 1px solid gray;
+    height: fit-content;
 
 }
 
 .icon{
-    width: 100px;
-    height: 100px;
-    padding: 10px;
+    width: 60px;
+    height: 60px;
+    padding-top: 10px;
 }
 
 
@@ -50,13 +56,21 @@ h4{
 }
 
 .box{
-    width: 150px;
+    width: 170px;
 }
 
 .amount{
     display: flex;
     flex-direction: row-reverse;
     margin-right: 20px;
+}
+
+#name{
+    margin-bottom: 0;
+}
+
+#type{
+    margin-top: 0;
 }
 
 @media only screen and (max-width: 600px) {
