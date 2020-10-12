@@ -26,13 +26,14 @@ export class RecentTransactionsComponent implements OnInit {
   //     accountNumber: String
   //   }
   // }
-  transactions: Array<Object>;
+  val: '';
+  transactions: Array<any>;
   constructor(private _RecentTransactionsService: RecentTransactionsService) { }
 
   ngOnInit(): void {
     this._RecentTransactionsService.getTransactions().subscribe(data => {
       this.transactions = data;
-      console.log(data)
+      this.val = '';
     })
   }
 
@@ -49,6 +50,29 @@ export class RecentTransactionsComponent implements OnInit {
       })
     } else this.ngOnInit()
     
+  }
+
+  beneficiarySort(){
+    this._RecentTransactionsService.getBeneficiaryAsc().subscribe(data=>{
+      this.transactions = data;
+    })
+  }
+
+  datesort(){
+    this.transactions = this.transactions.sort((a: any,b: any)=>(parseInt(a.dates.valueDate) > parseInt(b.dates.valueDate)) ? -1 : 1)
+  }
+
+  dateSort(){
+    this.transactions = this.transactions.sort((a: any,b: any): any=>{
+          let aDate = new Date(a.dates.valueDate).getTime()
+          let bDate = new Date(b.dates.valueDate).getTime()
+        return (aDate > bDate ? -1 : 1)
+    })
+  }
+
+
+  amountSort(){
+    this.transactions = this.transactions.sort((a: any,b: any)=>(parseInt(a.transaction.amountCurrency.amount) > parseInt(b.transaction.amountCurrency.amount)) ? -1 : 1)
   }
 
 }

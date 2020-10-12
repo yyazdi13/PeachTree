@@ -4,12 +4,13 @@
         <h4>Recent Transactions</h4>
     </div>
     <div class="search-container">
-        <input (keyup)="onChange($event)" name="search" placeholder="Search by typing..">
-        Sort By
+        <input (keyup)="onChange($event)" name="search" [(ngModel)]="val" placeholder="Search by typing..">
+        <span class="close" (click)="ngOnInit()">&times;</span>
+        <span class="sort">Sort By</span>
         <div class="search-options">
-            <button>Date</button>
-            <button>Beneficiary</button>
-            <button>Amount</button>
+            <button (click)="dateSort()">Date</button>
+            <button (click)="beneficiarySort()">Beneficiary</button>
+            <button (click)="amountSort()">Amount</button>
         </div>
     </div>
     <div class="content-box">

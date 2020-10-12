@@ -95,13 +95,28 @@ input{
     border-bottom: 1px solid gray;
     font-family: 'Kanit', sans-serif;
     font-size: 14pt;
-    width: 40%;
+    width: 35%;
 }
 
-.search-options{
-    margin-left: -50px;
+.sort{
+    margin-left: 30px;
+    padding-left: 30px;
 }
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: -70px
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 button:hover{
     background-color: rgba(184, 179, 179, 0.267);

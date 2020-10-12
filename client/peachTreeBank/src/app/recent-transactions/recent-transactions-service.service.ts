@@ -14,4 +14,10 @@ export class RecentTransactionsService {
   {
     return this.http.get('http://localhost:3001/api/all')
   }
+
+  getBeneficiaryAsc(): Observable<any>
+  {
+    return this.http.get('http://localhost:3001/api/beneficiary/asc')
+  }
+
 }
