@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'peachTreeBank';
+  receiveTransferTransaction: any;
+  sendTransferTransaction(sendTransferTransactionObject: any) {
+    this.receiveTransferTransaction = sendTransferTransactionObject
+  }
 }

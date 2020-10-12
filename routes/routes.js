@@ -23,5 +23,13 @@ router.get('/beneficiary/asc', (req, res) => {
     })
 })
 
+// create a new transaction
+router.post('/transfer', (req, res) => {
+    db.create(req.body).then(function(results, error){
+        if (error) throw error;
+        else res.status(200).json(results);
+    })
+})
+
 
 module.exports = router;

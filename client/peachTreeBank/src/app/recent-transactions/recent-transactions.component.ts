@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { RecentTransactionsService } from './recent-transactions-service.service';
+import { Transaction } from '../transfer-box/transfer';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-recent-transactions',
@@ -8,24 +10,8 @@ import { RecentTransactionsService } from './recent-transactions-service.service
   providers: [RecentTransactionsService]
 })
 export class RecentTransactionsComponent implements OnInit {
-  // transactions: {
-  //   categoryCode: String,
-  //   dates: {
-  //     valueDate: any
-  //   },
-  //   transaction: {
-  //     amountCurrency : {
-  //       amount: any,
-  //       currencyCode: String
-  //     },
-  //     type: String,
-  //     creditDebitIndicator: String
-  //   },
-  //   merchant: {
-  //     name: String,
-  //     accountNumber: String
-  //   }
-  // }
+  @Input() public recievTransfer = {};
+  
   val: '';
   transactions: Array<any>;
   constructor(private _RecentTransactionsService: RecentTransactionsService) { }
@@ -35,6 +21,13 @@ export class RecentTransactionsComponent implements OnInit {
       this.transactions = data;
       this.val = '';
     })
+  }
+
+  ngOnChanges() {
+    if(this.recievTransfer !== {}){
+    this.transactions = this.transactions.sort((a, b) => (a.transactionDate > b.transactionDate) ? -1 : 1)
+    this.ngOnInit()
+    }
   }
 
   public getDate(date: Date) {
