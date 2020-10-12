@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PeachTreeSchema = new Schema({
-    data: [
-        {
           categoryCode: String,
           dates: {
             valueDate: Schema.Types.Mixed
@@ -32,7 +30,7 @@ const PeachTreeSchema = new Schema({
                 type: String,
             }
           },
-    }]
+    
 });
 
 const transactions = mongoose.model("transaction", PeachTreeSchema);

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header">
             <img src="../../assets/icons/arrows.png" alt="arrows">
-        <h4>Make a Transfer</h4>
+            <h4>Make a Transfer</h4>
     </div>
     <form>
         <label><strong>From Account</strong></label>
@@ -10,23 +10,23 @@
         <input [(ngModel)]="to" type="text" name="to" placeholder="Southern Electric Company">
         <label><strong>Amount</strong></label>
         <input [(ngModel)]="amount" name="amount" placeholder="$0.00">
-    <button (click)="preview()" type="button" id="myBtn">Submit</button>
+        <button (click)="preview()" type="button" id="myBtn">Submit</button>
     </form>
 
-<div id="myModal" class="modal" *ngIf="visible" style="display: block;">
+    <div id="myModal" class="modal" *ngIf="visible" style="display: block;">
 
-  <div class="modal-content">
-    <span (click)="exitPreview()" class="close">&times;</span>
-    <form>
-        <label><strong>From Account</strong></label>
-        <input disabled placeholder="Free Checking(4692) - ${{total}}">
-        <label><strong>To Account</strong></label>
-        <input [value] = "to">
-        <label><strong>Amount</strong></label>
-        <input [value] ="amount" placeholder="$0.00">
-        <button id="transfer" type="submit">Transfer</button>
-    </form>
-  </div>
+        <div class="modal-content">
+            <span (click)="exitPreview()" class="close">&times;</span>
+            <form>
+                <label><strong>From Account</strong></label>
+                <input disabled placeholder="Free Checking(4692) - ${{total}}">
+                <label><strong>To Account</strong></label>
+                <input [value] = "to">
+                <label><strong>Amount</strong></label>
+                <input [value] ="amount" placeholder="$0.00">
+                <button (click)="onSubmit()" id="transfer" type="submit">Transfer</button>
+            </form>
+        </div>
 
-</div>
+    </div>
 </div>

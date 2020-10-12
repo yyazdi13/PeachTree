@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TransferBoxComponent implements OnInit {
   total = <number> 5824.76;
   public to = '';
-  public amount = '';
+  amount: number;
   constructor() { }
 
   visible = <boolean> false;
@@ -20,6 +20,11 @@ export class TransferBoxComponent implements OnInit {
   }
 
   exitPreview(){
+    this.visible = false;
+  }
+
+  onSubmit(){
+    this.total = this.total - this.amount;
     this.visible = false;
   }
 

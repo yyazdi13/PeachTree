@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="header">
+        <img class="briefcase" src="../../assets/icons/arrows.png" alt="briefcase">
+        <h4>Recent Transactions</h4>
+    </div>
+    <div class="content-box">
+        <div class="content" *ngFor="let transaction of transactions">
+            <div class="box">
+                <p>{{getDate(transaction.dates.valueDate)}}</p>
+            </div>
+            <div class="box">
+                <img class="icon" src="../../assets/icons/backbase.png">
+            </div>
+                <div class="box">
+                   <strong><p>{{transaction.merchant.name}}</p></strong>
+                    <p>{{transaction.transaction.type}}</p>
+                </div>
+                <div class="box amount">
+                <p class="amount">-{{transaction.transaction.amountCurrency.amount}}</p>
+                </div>
+        </div>
+    </div>
+</div>

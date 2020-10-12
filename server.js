@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const db = require("./models");
 const route = require('./routes/routes');
+const cors = require('cors');
 
 //Setup express instance and port config
 const app = express();
@@ -23,6 +24,7 @@ mongoose.connection.on('connected', () => {
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cors());
 
 //Routes
 app.use('/api', route);
@@ -34,7 +36,6 @@ if (process.env.NODE_ENV === 'production'){
 
 //Connect to port
 app.listen(PORT, (res) =>{
-    console.log("app is listening at port " + PORT);
-    
+    console.log("app is listening at port " + PORT); 
 });
 
