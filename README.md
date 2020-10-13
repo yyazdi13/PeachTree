@@ -3,6 +3,9 @@ This is a MEAN banking app built for an assignment, focusing on Angular and pure
 
 This full-stack application is fully responsive, and makes use of a RESTful API to create and read data from the database. To demonstrate my front-end skills, no styling frameworks were used.
 
+![image](https://user-images.githubusercontent.com/54565666/95813228-09ffd900-0cdd-11eb-9264-d7689828c420.png)
+
+
 ### Transfer Money
 
 As a user, I should be able to transfer money from my account and view the changes to my transaction history
