@@ -13,6 +13,7 @@
     "install-client": "cd client && cd peachTreeBank && npm install",
     "start": "node server.js",
     "client": "cd client && cd peachTreeBank && ng serve -o",
+    "heroku-postbuild": "npm install @angular/cli@latest @angular/compiler-cli && npm run install-client && npm run build",
     "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\""
   },
   "repository": {
