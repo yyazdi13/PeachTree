@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
 import { RecentTransactionsService } from './recent-transactions-service.service';
 import { Transaction } from '../transfer-box/transfer';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-recent-transactions',
@@ -10,8 +9,7 @@ import { empty } from 'rxjs';
   providers: [RecentTransactionsService]
 })
 export class RecentTransactionsComponent implements OnInit {
-  @Input() public recievTransfer = {};
-  
+  @Input() receiveTransfer: Transaction;
   val: '';
   transactions: Array<any>;
   constructor(private _RecentTransactionsService: RecentTransactionsService) { }
@@ -20,20 +18,27 @@ export class RecentTransactionsComponent implements OnInit {
     this._RecentTransactionsService.getTransactions().subscribe(data => {
       this.transactions = data;
       this.val = '';
+      this.datesort()
     })
   }
 
+  // Listen for changes in transfer component
   ngOnChanges() {
-    if(this.recievTransfer !== {}){
-    this.transactions = this.transactions.sort((a, b) => (a.transactionDate > b.transactionDate) ? -1 : 1)
     this.ngOnInit()
-    }
+    this.transactions.push(this.receiveTransfer);
+    this.datesort();
+  }
+
+  ngAfterViewInit(){
+    this.datesort()
+    this.ngOnInit()
   }
 
   public getDate(date: Date) {
     return new Date(date).toDateString();
   }
 
+  // filter Search
   onChange(event: Event): any {
     let value = (event.target as HTMLInputElement).value;
     if(value !== ""){
@@ -45,6 +50,8 @@ export class RecentTransactionsComponent implements OnInit {
     
   }
 
+
+  // Sorting Functions
   beneficiarySort(){
     this._RecentTransactionsService.getBeneficiaryAsc().subscribe(data=>{
       this.transactions = data;
@@ -59,7 +66,7 @@ export class RecentTransactionsComponent implements OnInit {
     this.transactions = this.transactions.sort((a: any,b: any): any=>{
           let aDate = new Date(a.dates.valueDate).getTime()
           let bDate = new Date(b.dates.valueDate).getTime()
-        return (aDate > bDate ? -1 : 1)
+        return (aDate < bDate ? -1 : 1)
     })
   }
 

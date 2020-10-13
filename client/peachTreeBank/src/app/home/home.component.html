@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<div class="container">
+    <app-transfer-box (sendTransfer)="sendTransferTransaction($event)"></app-transfer-box>
+
+    <app-recent-transactions [receiveTransfer]="receiveTransferTransaction"></app-recent-transactions>
+
+</div>

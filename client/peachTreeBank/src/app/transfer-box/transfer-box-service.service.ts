@@ -30,7 +30,8 @@ export class TransferBoxService {
       },
       dates: {
         valueDate:new Date().getTime()
-      }
+      },
+      image: 'new'
     },
       {headers: headers});
   

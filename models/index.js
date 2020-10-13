@@ -30,7 +30,7 @@ const PeachTreeSchema = new Schema({
                 type: String,
             }
           },
-    
+          image: String
 });
 
 const transactions = mongoose.model("transaction", PeachTreeSchema);

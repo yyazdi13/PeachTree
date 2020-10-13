@@ -39,6 +39,7 @@ h4{
     justify-content: space-between;
     border: 1px solid gray;
     height: fit-content;
+    overflow: auto;
 
 }
 
@@ -108,7 +109,7 @@ input{
     float: right;
     font-size: 28px;
     font-weight: bold;
-    margin-left: -70px
+    margin-left: -10%;
 }
   
 .close:hover,

@@ -15,4 +15,6 @@ export class Transaction{
       name: String;
       accountNumber: String;
     };
+
+    image: String;
 }

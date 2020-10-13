@@ -8,13 +8,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TransferBoxComponent } from './transfer-box/transfer-box.component';
 import { FormsModule } from '@angular/forms';
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TransferBoxComponent,
-    RecentTransactionsComponent
+    RecentTransactionsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
