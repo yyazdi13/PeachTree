@@ -14,6 +14,7 @@ export class TransferBoxComponent implements OnInit {
   public to = '';
   public amount = <any> '';
   public name = '';
+  limit = <boolean> false;
   constructor(private _transferBoxService: TransferBoxService) { }
 
   visible = <boolean> false;
@@ -37,14 +38,15 @@ export class TransferBoxComponent implements OnInit {
 
   Transfer({name, amount}): void{
     if(this.total - this.amount > -500){
+      this.limit = false;
       this._transferBoxService.createTransfer(name, amount).subscribe(transaction =>{
         console.log(transaction);
         this.sendTransfer.emit(transaction);
+        this.onSubmit();
       })
     }else {
-      window.location.reload()
+      this.limit = true;
     }
-    this.onSubmit();
 
   }
 

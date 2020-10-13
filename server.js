@@ -31,8 +31,13 @@ app.use('/api', route);
 
 //Heroku setup
 if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'));
+    app.use(express.static('client/peachTree/dist/peachTree'));
 }
+
+// static setup
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client", "peachTree", "dist", "peachTree", "index.html"));
+});
 
 //Connect to port
 app.listen(PORT, (res) =>{

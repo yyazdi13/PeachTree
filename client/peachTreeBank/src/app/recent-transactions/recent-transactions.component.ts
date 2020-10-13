@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, AfterViewInit} from '@angular/core';
 import { RecentTransactionsService } from './recent-transactions-service.service';
 import { Transaction } from '../transfer-box/transfer';
 

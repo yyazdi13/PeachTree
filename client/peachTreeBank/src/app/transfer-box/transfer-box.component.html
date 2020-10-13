@@ -17,11 +17,12 @@
         <div class="modal-content">
             <span (click)="exitPreview()" class="close">&times;</span>
             <form (ngSubmit)="Transfer({name: name, amount: amount})">
-                <label><strong>From Account</strong></label>
+                <h3 *ngIf="limit" style="display: block;">Insufficient Funds. Overdraw Limit Reached</h3>
+                <label class="modalLabel"><strong>From Account</strong></label>
                 <input disabled placeholder="Free Checking(4692) - ${{total}}">
-                <label><strong>To Account</strong></label>
+                <label class="modalLabel"><strong>To Account</strong></label>
                 <input [value]= "name" name="name" [(ngModel)]="name">
-                <label><strong>Amount</strong></label>
+                <label class="modalLabel"><strong>Amount</strong></label>
                 <input [value] ="to" name="amount" [(ngModel)]="amount" placeholder="$0.00">
             <button (ngSubmit)="createTransfer" id="transfer" type="submit">Transfer</button>
             </form>
