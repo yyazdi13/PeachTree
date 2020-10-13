@@ -12,12 +12,12 @@ export class RecentTransactionsService {
   
   getTransactions():Observable<any>
   {
-    return this.http.get('http://localhost:3001/api/all')
+    return this.http.get('/api/all')
   }
 
   getBeneficiaryAsc(): Observable<any>
   {
-    return this.http.get('http://localhost:3001/api/beneficiary/asc')
+    return this.http.get('/api/beneficiary/asc')
   }
 
 }

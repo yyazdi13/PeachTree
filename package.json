@@ -9,8 +9,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd public && cd peachTree && ng build --prod",
-    "install-client": "cd public && cd peachTree && npm install",
+    "build": "cd client && cd peachTreeBank && ng build --prod",
+    "install-client": "cd client && cd peachTreeBank && npm install",
     "start": "node server.js",
     "client": "cd client && cd peachTreeBank && ng serve -o",
     "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\""

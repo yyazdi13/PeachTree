@@ -6,12 +6,15 @@ const db = require("./models");
 const route = require('./routes/routes');
 const cors = require('cors');
 
+const uri = "mongodb+srv://yasmin:@Helloworld13@cluster0.w1tvs.mongodb.net/peachTreeDB?retryWrites=true&w=majority";
+
+
 //Setup express instance and port config
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 //Connect to mongoose database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peachTreeDB', {
+mongoose.connect(uri || 'mongodb://localhost/peachTreeDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -31,12 +34,12 @@ app.use('/api', route);
 
 //Heroku setup
 if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/peachTree/dist/peachTree'));
+    app.use(express.static('client/peachTreeBank/dist/peachTreeBank'));
 }
 
 // static setup
 app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "client", "peachTree", "dist", "peachTree", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "peachTreeBank", "dist", "peachTreeBank", "index.html"));
 });
 
 //Connect to port

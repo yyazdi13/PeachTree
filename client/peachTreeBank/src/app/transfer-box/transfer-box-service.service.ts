@@ -14,7 +14,7 @@ export class TransferBoxService {
   {
     var headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json')
-    return this.http.post<Transaction>('http://localhost:3001/api/transfer', {
+    return this.http.post<Transaction>('/api/transfer', {
       categoryCode: '#f57c00',
       transaction:{
         type: 'Online Transfer',
